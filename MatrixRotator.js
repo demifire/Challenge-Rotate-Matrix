@@ -18,9 +18,63 @@ module.exports = class MatrixRotator {
   //      |-- Must be Direction.CW
   //      v        or Direction.CCW
   rotate (direction) {
-    // do work here
+    var rotatedMatrix = [];
+    var innerArr = [];
+    // console.log('YOYOYO', this.matrix);
+    // console.log('DIS', direction);
 
-    // must be a valid Direction, see Direction.js
+    if (direction === 'ClockWise'){
+            var thisMatrix = this.matrix;
+            var newMatrix = [];
+            var innerArr = [];
+            for (var j=0; j<thisMatrix[0].length; j) {
+              for (var i=thisMatrix.length-1; i>=0; i--) {
+                innerArr.push(thisMatrix[i][0]);
+                thisMatrix[i].shift();
+              }
+              newMatrix.push(innerArr);
+              innerArr = [];
+            }
+            this.matrix = newMatrix;
+            console.log(thisMatrix);
+
+
+      //My method
+
+      // if (direction === 'ClockWise'){
+      //   console.log('FUKU');
+      //   while(this.matrix[0].length>0){
+      //     innerArr = [];
+      //     for(var i=this.matrix[0].length-1;i>0;i--){
+      //       console.log('DIS BE ARR ' + i, this.matrix[i]);
+      //       var WAT = this.matrix[i].shift();
+      //       console.log(WAT);
+      //       innerArr.push(WAT);
+      //     }
+      //     rotatedMatrix.push(innerArr)
+      //   }
+      //   console.log(rotatedMatrix)
+      //   this.matrix = rotatedMatrix
+      // }
+
+    }
+
+    if (direction === 'CounterClockWise'){
+      console.log('FUKU');
+      while(this.matrix[0].length>0){
+        innerArr = [];
+        for(var i=0;i<this.matrix.length;i++){
+          console.log('DIS BE ARR ' + i, this.matrix[i]);
+          var WAT = this.matrix[i].pop();
+          console.log(WAT);
+          innerArr.push(WAT);
+        }
+        rotatedMatrix.push(innerArr)
+      }
+      console.log(rotatedMatrix)
+      this.matrix = rotatedMatrix
+    }
+
 
   }
 };
