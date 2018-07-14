@@ -20,8 +20,8 @@ module.exports = class MatrixRotator {
   rotate (direction) {
     var rotatedMatrix = [];
     var innerArr = [];
-    // console.log('YOYOYO', this.matrix);
-    // console.log('DIS', direction);
+    console.log('YOYOYO', this.matrix);
+    console.log('WAN', direction);
 
     // if (direction === 'ClockWise'){
     //         var thisMatrix = this.matrix;
@@ -57,11 +57,7 @@ module.exports = class MatrixRotator {
         }
         console.log(rotatedMatrix)
         this.matrix = rotatedMatrix
-      }
-
-  
-
-    if (direction === 'CounterClockWise'){
+      } else if (direction === 'CounterClockWise'){
       console.log('Solving Counter Clockwise Problem');
       while(this.matrix[0].length>0){
         innerArr = [];
